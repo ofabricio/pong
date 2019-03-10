@@ -1,0 +1,20 @@
+-   status: 400
+    match:
+        path: /health
+        method: GET
+        after: 2
+    headers:
+        Content-Type: application/json
+    body: '{ "msg": "Oops!" }'
+
+-   status: 200
+    match:
+        path: /health
+    headers:
+        Content-Type: application/json
+    body: '{ "msg": "ok" }'
+
+-   status: 500
+    match:
+        path: /users
+    body: "Something is wrong!"
